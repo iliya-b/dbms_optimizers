@@ -17,7 +17,7 @@ CREATE INDEX ON clients (phone);
 EXPLAIN SELECT * from clients where phone < '7910419099';
 
 -- forced поиск с индексом
-set enable_seqscan=true;
+set enable_seqscan=false;
 EXPLAIN SELECT * from clients where phone < '7910499099';
 
 CREATE INDEX ON clients (phone) INCLUDE (full_name);
