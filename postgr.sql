@@ -4,9 +4,7 @@
 -- Зачем нужен GEQO и как ведет себя оптимизатор при большом количестве таблиц в запросе 
 
 CREATE TABLE clients (phone text, full_name text);
-INSERT INTO clients
-  SELECT ('79104' || LPAD(i::text, 6, '0')), md5(random()::text)
-  FROM generate_series(1, 999999) AS i;
+INSERT INTO clients SELECT ('79104' || LPAD(i::text, 6, '0')), md5(random()::text) FROM generate_series(1, 999999) AS i;
 
 -- поиск без индекса
 EXPLAIN SELECT * from clients where phone < '7910419099';
