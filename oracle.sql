@@ -1,5 +1,4 @@
--- показываем на примере Oracle DBMS, что при отсутствии статистики оптимизатор может предлагать неверный план.
--- в таких случаях есть возможность указать индекс явно
+--
 
 CREATE TABLE clients (phone varchar(20), full_name varchar(50));
 INSERT INTO clients SELECT concat('79104' , lpad(Rownum, 6, '0')), standard_hash(Rownum, 'MD5') FROM dual Connect By Rownum <= 999999 order by DBMS_RANDOM.VALUE;
