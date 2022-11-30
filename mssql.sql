@@ -2,6 +2,10 @@
 -- датасет отсюда https://www.brentozar.com/archive/2015/10/how-to-download-the-stack-overflow-database-via-bittorrent/ (первый)
 -- показываем, что оптимизатор может недооценить селективность индекса
 
+
+-- sudo docker exec -it sql1 "bash"
+-- /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P '<YourStrong@Passw0rd>' -y 0 -I
+
 set statistics time on;
 
 CREATE DATABASE [database_name] ON ( FILENAME = N'/tmp/new_datasets/StackOverflow2010.mdf' ), ( FILENAME = N'/tmp/new_datasets/StackOverflow2010_log.ldf' ) FOR ATTACH ;
@@ -13,8 +17,10 @@ SET STATISTICS XML ON
 go
 SET STATISTICS IO ON;
 
-SELECT * FROM dbo.Users WHERE CreationDate > '2010-11-10' AND Reputation > 100 ORDER BY DisplayName;
+SELECT * FROM dbo.Users WHERE CreationDate > '2010-11-10' AND Reputation > 5000 ORDER BY DisplayName;
 go
 SELECT * FROM dbo.Users WITH (index=CreationDate_Reputation) WHERE CreationDate > '2010-11-10' AND Reputation > 5000 ORDER BY DisplayName;
 
 -- https://www.brentozar.com/pastetheplan/?id=HkVLwUVwj
+
+

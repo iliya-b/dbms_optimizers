@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ShowPlanXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/sqlserver/2004/07/showplan" Version="1.539" Build="15.0.4033.1">
+  <BatchSequence>
+    <Batch>
+      <Statements>
+        <StmtSimple StatementText="SELECT * FROM [dbo].[Users] WHERE [CreationDate]&gt;@1 AND [Reputation]&gt;@2 ORDER BY [DisplayName] ASC" StatementId="1" StatementCompId="2" StatementType="SELECT" RetrievedFromCache="false" StatementSubTreeCost="5.8253" StatementEstRows="2036.48" SecurityPolicyApplied="false" StatementOptmLevel="FULL" QueryHash="0x0270E7B79E0A84C1" QueryPlanHash="0x029E572330BE6913" CardinalityEstimationModelVersion="70">
+          <StatementSetOptions QUOTED_IDENTIFIER="true" ARITHABORT="true" CONCAT_NULL_YIELDS_NULL="true" ANSI_NULLS="true" ANSI_PADDING="true" ANSI_WARNINGS="true" NUMERIC_ROUNDABORT="false"></StatementSetOptions>
+          <QueryPlan DegreeOfParallelism="8" MemoryGrant="16896" CachedPlanSize="48" CompileTime="3" CompileCPU="3" CompileMemory="328">
+            <ThreadStat Branches="1" UsedThreads="8">
+              <ThreadReservation NodeId="0" ReservedThreads="8"></ThreadReservation>
+            </ThreadStat>
+            <MemoryGrantInfo SerialRequiredMemory="512" SerialDesiredMemory="11720" RequiredMemory="5632" DesiredMemory="16896" RequestedMemory="16896" GrantWaitTime="0" MaxQueryMemory="255864" GrantedMemory="16896" MaxUsedMemory="2112"></MemoryGrantInfo>
+            <OptimizerHardwareDependentProperties EstimatedAvailableMemoryGrant="81472" EstimatedPagesCached="40736" EstimatedAvailableDegreeOfParallelism="4" MaxCompileMemory="661072"></OptimizerHardwareDependentProperties>
+            <WaitStats>
+              <Wait WaitType="CXPACKET" WaitTimeMs="191" WaitCount="467"></Wait>
+              <Wait WaitType="LATCH_EX" WaitTimeMs="62" WaitCount="88"></Wait>
+              <Wait WaitType="CXSYNC_PORT" WaitTimeMs="27" WaitCount="9"></Wait>
+              <Wait WaitType="LATCH_SH" WaitTimeMs="2" WaitCount="5"></Wait>
+            </WaitStats>
+            <QueryTimeStats ElapsedTime="54" CpuTime="141"></QueryTimeStats>
+            <RelOp NodeId="0" PhysicalOp="Parallelism" LogicalOp="Gather Streams" EstimateRows="2036.48" EstimateIO="0" EstimateCPU="0.199404" AvgRowSize="4468" EstimatedTotalSubtreeCost="5.8253" Parallel="1" EstimateRebinds="0" EstimateRewinds="0" EstimatedExecutionMode="Row">
+              <OutputList>
+                <ColumnReference Database="[database_name]" Schema="[dbo]" Table="[Users]" Column="Id"></ColumnReference>
+                <ColumnReference Database="[database_name]" Schema="[dbo]" Table="[Users]" Column="AboutMe"></ColumnReference>
+                <ColumnReference Database="[database_name]" Schema="[dbo]" Table="[Users]" Column="Age"></ColumnReference>
+                <ColumnReference Database="[database_name]" Schema="[dbo]" Table="[Users]" Column="CreationDate"></ColumnReference>
+                <ColumnReference Database="[database_name]" Schema="[dbo]" Table="[Users]" Column="DisplayName"></ColumnReference>
+                <ColumnReference Database="[database_name]" Schema="[dbo]" Table="[Users]" Column="DownVotes"></ColumnReference>
+                <ColumnReference Database="[database_name]" Schema="[dbo]" Table="[Users]" Column="EmailHash"></ColumnReference>
+                <ColumnReference Database="[database_name]" Schema="[dbo]" Table="[Users]" Column="LastAccessDate"></ColumnReference>
+                <ColumnReference Database="[database_name]" Schema="[dbo]" Table="[Users]" Column="Location"></ColumnReference>
+                <ColumnReference Database="[database_name]" Schema="[dbo]" Table="[Users]" Column="Reputation"></ColumnReference>
+                <ColumnReference Database="[database_name]" Schema="[dbo]" Table="[Users]" Column="UpVotes"></ColumnReference>
+                <ColumnReference Database="[database_name]" Schema="[dbo]" Table="[Users]" Column="Views"></ColumnReference>
+                <ColumnReference Database="[database_name]" Schema="[dbo]" Table="[Users]" Column="WebsiteUrl"></ColumnReference>
+                <ColumnReference Database="[database_name]" Schema="[dbo]" Table="[Users]" Column="AccountId"></ColumnReference>
+              </OutputList>
+              <RunTimeInformation>
+                <RunTimeCountersPerThread Thread="0" ActualRows="800" Batches="0" ActualElapsedms="49" ActualCPUms="10" ActualEndOfScans="1" ActualExecutions="1" ActualExecutionMode="Row"></RunTimeCountersPerThread>
+              </RunTimeInformation>
+              <Parallelism>
+                <OrderBy>
+                  <OrderByColumn Ascending="1">
+                    <ColumnReference Database="[database_name]" Schema="[dbo]" Table="[Users]" Column="DisplayName"></ColumnReference>
+                  </OrderByColumn>
+                </OrderBy>
+                <RelOp NodeId="1" PhysicalOp="Sort" LogicalOp="Sort" EstimateRows="2036.48" EstimateIO="0.00281532" EstimateCPU="0.00875613" AvgRowSize="4468" EstimatedTotalSubtreeCost="5.6259" Parallel="1" EstimateRebinds="0" EstimateRewinds="0" EstimatedExecutionMode="Row">
+                  <OutputList>
+                    <ColumnReference Database="[database_name]" Schema="[dbo]" Table="[Users]" Column="Id"></ColumnReference>
+                    <ColumnReference Database="[database_name]" Schema="[dbo]" Table="[Users]" Column="AboutMe"></ColumnReference>
+                    <ColumnReference Database="[database_name]" Schema="[dbo]" Table="[Users]" Column="Age"></ColumnReference>
+                    <ColumnReference Database="[database_name]" Schema="[dbo]" Table="[Users]" Column="CreationDate"></ColumnReference>
+                    <ColumnReference Database="[database_name]" Schema="[dbo]" Table="[Users]" Column="DisplayName"></ColumnReference>
+                    <ColumnReference Database="[database_name]" Schema="[dbo]" Table="[Users]" Column="DownVotes"></ColumnReference>
+                    <ColumnReference Database="[database_name]" Schema="[dbo]" Table="[Users]" Column="EmailHash"></ColumnReference>
+                    <ColumnReference Database="[database_name]" Schema="[dbo]" Table="[Users]" Column="LastAccessDate"></ColumnReference>
+                    <ColumnReference Database="[database_name]" Schema="[dbo]" Table="[Users]" Column="Location"></ColumnReference>
+                    <ColumnReference Database="[database_name]" Schema="[dbo]" Table="[Users]" Column="Reputation"></ColumnReference>
+                    <ColumnReference Database="[database_name]" Schema="[dbo]" Table="[Users]" Column="UpVotes"></ColumnReference>
+                    <ColumnReference Database="[database_name]" Schema="[dbo]" Table="[Users]" Column="Views"></ColumnReference>
+                    <ColumnReference Database="[database_name]" Schema="[dbo]" Table="[Users]" Column="WebsiteUrl"></ColumnReference>
+                    <ColumnReference Database="[database_name]" Schema="[dbo]" Table="[Users]" Column="AccountId"></ColumnReference>
+                  </OutputList>
+                  <MemoryFractions Input="1" Output="1"></MemoryFractions>
+                  <RunTimeInformation>
+                    <RunTimeCountersPerThread Thread="8" ActualRows="157" Batches="0" ActualElapsedms="21" ActualCPUms="13" ActualScans="0" ActualLogicalReads="0" ActualPhysicalReads="0" ActualReadAheads="0" ActualLobLogicalReads="0" ActualLobPhysicalReads="0" ActualLobReadAheads="0" ActualRebinds="1" ActualRewinds="0" ActualEndOfScans="1" ActualExecutions="1" InputMemoryGrant="1920" OutputMemoryGrant="1536" UsedMemoryGrant="120" ActualExecutionMode="Row"></RunTimeCountersPerThread>
+                    <RunTimeCountersPerThread Thread="7" ActualRows="95" Batches="0" ActualElapsedms="21" ActualCPUms="14" ActualScans="0" ActualLogicalReads="0" ActualPhysicalReads="0" ActualReadAheads="0" ActualLobLogicalReads="0" ActualLobPhysicalReads="0" ActualLobReadAheads="0" ActualRebinds="1" ActualRewinds="0" ActualEndOfScans="1" ActualExecutions="1" InputMemoryGrant="1920" OutputMemoryGrant="1536" UsedMemoryGrant="80" ActualExecutionMode="Row"></RunTimeCountersPerThread>
+                    <RunTimeCountersPerThread Thread="6" ActualRows="92" Batches="0" ActualElapsedms="21" ActualCPUms="14" ActualScans="0" ActualLogicalReads="0" ActualPhysicalReads="0" ActualReadAheads="0" ActualLobLogicalReads="0" ActualLobPhysicalReads="0" ActualLobReadAheads="0" ActualRebinds="1" ActualRewinds="0" ActualEndOfScans="1" ActualExecutions="1" InputMemoryGrant="1920" OutputMemoryGrant="1536" UsedMemoryGrant="56" ActualExecutionMode="Row"></RunTimeCountersPerThread>
+                    <RunTimeCountersPerThread Thread="5" ActualRows="124" Batches="0" ActualElapsedms="22" ActualCPUms="14" ActualScans="0" ActualLogicalReads="0" ActualPhysicalReads="0" ActualReadAheads="0" ActualLobLogicalReads="0" ActualLobPhysicalReads="0" ActualLobReadAheads="0" ActualRebinds="1" ActualRewinds="0" ActualEndOfScans="1" ActualExecutions="1" InputMemoryGrant="1920" OutputMemoryGrant="1536" UsedMemoryGrant="88" ActualExecutionMode="Row"></RunTimeCountersPerThread>
+                    <RunTimeCountersPerThread Thread="4" ActualRows="115" Batches="0" ActualElapsedms="21" ActualCPUms="12" ActualScans="0" ActualLogicalReads="0" ActualPhysicalReads="0" ActualReadAheads="0" ActualLobLogicalReads="0" ActualLobPhysicalReads="0" ActualLobReadAheads="0" ActualRebinds="1" ActualRewinds="0" ActualEndOfScans="1" ActualExecutions="1" InputMemoryGrant="1920" OutputMemoryGrant="1536" UsedMemoryGrant="80" ActualExecutionMode="Row"></RunTimeCountersPerThread>
+                    <RunTimeCountersPerThread Thread="3" ActualRows="0" Batches="0" ActualElapsedms="20" ActualCPUms="13" ActualScans="0" ActualLogicalReads="0" ActualPhysicalReads="0" ActualReadAheads="0" ActualLobLogicalReads="0" ActualLobPhysicalReads="0" ActualLobReadAheads="0" ActualRebinds="1" ActualRewinds="0" ActualEndOfScans="1" ActualExecutions="1" InputMemoryGrant="1920" OutputMemoryGrant="1536" UsedMemoryGrant="0" ActualExecutionMode="Row"></RunTimeCountersPerThread>
+                    <RunTimeCountersPerThread Thread="2" ActualRows="75" Batches="0" ActualElapsedms="21" ActualCPUms="14" ActualScans="0" ActualLogicalReads="0" ActualPhysicalReads="0" ActualReadAheads="0" ActualLobLogicalReads="0" ActualLobPhysicalReads="0" ActualLobReadAheads="0" ActualRebinds="1" ActualRewinds="0" ActualEndOfScans="1" ActualExecutions="1" InputMemoryGrant="1920" OutputMemoryGrant="1536" UsedMemoryGrant="48" ActualExecutionMode="Row"></RunTimeCountersPerThread>
+                    <RunTimeCountersPerThread Thread="1" ActualRows="142" Batches="0" ActualElapsedms="22" ActualCPUms="13" ActualScans="0" ActualLogicalReads="0" ActualPhysicalReads="0" ActualReadAheads="0" ActualLobLogicalReads="0" ActualLobPhysicalReads="0" ActualLobReadAheads="0" ActualRebinds="1" ActualRewinds="0" ActualEndOfScans="1" ActualExecutions="1" InputMemoryGrant="1920" OutputMemoryGrant="1536" UsedMemoryGrant="104" ActualExecutionMode="Row"></RunTimeCountersPerThread>
+                    <RunTimeCountersPerThread Thread="0" ActualRows="0" Batches="0" ActualElapsedms="0" ActualCPUms="0" ActualScans="0" ActualLogicalReads="0" ActualPhysicalReads="0" ActualReadAheads="0" ActualLobLogicalReads="0" ActualLobPhysicalReads="0" ActualLobReadAheads="0" ActualRebinds="0" ActualRewinds="0" ActualEndOfScans="0" ActualExecutions="0" InputMemoryGrant="0" OutputMemoryGrant="0" UsedMemoryGrant="0" ActualExecutionMode="Row"></RunTimeCountersPerThread>
+                  </RunTimeInformation>
+                  <Sort Distinct="0">
+                    <OrderBy>
+                      <OrderByColumn Ascending="1">
+                        <ColumnReference Database="[database_name]" Schema="[dbo]" Table="[Users]" Column="DisplayName"></ColumnReference>
+                      </OrderByColumn>
+                    </OrderBy>
+                    <RelOp NodeId="2" PhysicalOp="Clustered Index Scan" LogicalOp="Clustered Index Scan" EstimateRows="2036.48" EstimatedRowsRead="299398" EstimateIO="5.46609" EstimateCPU="0.0823737" AvgRowSize="4468" EstimatedTotalSubtreeCost="5.54846" TableCardinality="299398" Parallel="1" EstimateRebinds="0" EstimateRewinds="0" EstimatedExecutionMode="Row">
+                      <OutputList>
+                        <ColumnReference Database="[database_name]" Schema="[dbo]" Table="[Users]" Column="Id"></ColumnReference>
+                        <ColumnReference Database="[database_name]" Schema="[dbo]" Table="[Users]" Column="AboutMe"></ColumnReference>
+                        <ColumnReference Database="[database_name]" Schema="[dbo]" Table="[Users]" Column="Age"></ColumnReference>
+                        <ColumnReference Database="[database_name]" Schema="[dbo]" Table="[Users]" Column="CreationDate"></ColumnReference>
+                        <ColumnReference Database="[database_name]" Schema="[dbo]" Table="[Users]" Column="DisplayName"></ColumnReference>
+                        <ColumnReference Database="[database_name]" Schema="[dbo]" Table="[Users]" Column="DownVotes"></ColumnReference>
+                        <ColumnReference Database="[database_name]" Schema="[dbo]" Table="[Users]" Column="EmailHash"></ColumnReference>
+                        <ColumnReference Database="[database_name]" Schema="[dbo]" Table="[Users]" Column="LastAccessDate"></ColumnReference>
+                        <ColumnReference Database="[database_name]" Schema="[dbo]" Table="[Users]" Column="Location"></ColumnReference>
+                        <ColumnReference Database="[database_name]" Schema="[dbo]" Table="[Users]" Column="Reputation"></ColumnReference>
+                        <ColumnReference Database="[database_name]" Schema="[dbo]" Table="[Users]" Column="UpVotes"></ColumnReference>
+                        <ColumnReference Database="[database_name]" Schema="[dbo]" Table="[Users]" Column="Views"></ColumnReference>
+                        <ColumnReference Database="[database_name]" Schema="[dbo]" Table="[Users]" Column="WebsiteUrl"></ColumnReference>
+                        <ColumnReference Database="[database_name]" Schema="[dbo]" Table="[Users]" Column="AccountId"></ColumnReference>
+                      </OutputList>
+                      <RunTimeInformation>
+                        <RunTimeCountersPerThread Thread="8" ActualRows="157" Batches="0" ActualElapsedms="20" ActualCPUms="12" ActualScans="1" ActualLogicalReads="1002" ActualPhysicalReads="0" ActualReadAheads="0" ActualLobLogicalReads="0" ActualLobPhysicalReads="0" ActualLobReadAheads="0" ActualRowsRead="39243" ActualEndOfScans="1" ActualExecutions="1" ActualExecutionMode="Row"></RunTimeCountersPerThread>
+                        <RunTimeCountersPerThread Thread="7" ActualRows="95" Batches="0" ActualElapsedms="20" ActualCPUms="13" ActualScans="1" ActualLogicalReads="982" ActualPhysicalReads="0" ActualReadAheads="0" ActualLobLogicalReads="0" ActualLobPhysicalReads="0" ActualLobReadAheads="0" ActualRowsRead="38418" ActualEndOfScans="1" ActualExecutions="1" ActualExecutionMode="Row"></RunTimeCountersPerThread>
+                        <RunTimeCountersPerThread Thread="6" ActualRows="92" Batches="0" ActualElapsedms="20" ActualCPUms="13" ActualScans="1" ActualLogicalReads="998" ActualPhysicalReads="0" ActualReadAheads="0" ActualLobLogicalReads="0" ActualLobPhysicalReads="0" ActualLobReadAheads="0" ActualRowsRead="38376" ActualEndOfScans="1" ActualExecutions="1" ActualExecutionMode="Row"></RunTimeCountersPerThread>
+                        <RunTimeCountersPerThread Thread="5" ActualRows="124" Batches="0" ActualElapsedms="21" ActualCPUms="13" ActualScans="1" ActualLogicalReads="936" ActualPhysicalReads="0" ActualReadAheads="0" ActualLobLogicalReads="0" ActualLobPhysicalReads="0" ActualLobReadAheads="0" ActualRowsRead="36426" ActualEndOfScans="1" ActualExecutions="1" ActualExecutionMode="Row"></RunTimeCountersPerThread>
+                        <RunTimeCountersPerThread Thread="4" ActualRows="115" Batches="0" ActualElapsedms="20" ActualCPUms="12" ActualScans="1" ActualLogicalReads="866" ActualPhysicalReads="0" ActualReadAheads="0" ActualLobLogicalReads="0" ActualLobPhysicalReads="0" ActualLobReadAheads="0" ActualRowsRead="33590" ActualEndOfScans="1" ActualExecutions="1" ActualExecutionMode="Row"></RunTimeCountersPerThread>
+                        <RunTimeCountersPerThread Thread="3" ActualRows="0" Batches="0" ActualElapsedms="20" ActualCPUms="13" ActualScans="1" ActualLogicalReads="535" ActualPhysicalReads="0" ActualReadAheads="0" ActualLobLogicalReads="0" ActualLobPhysicalReads="0" ActualLobReadAheads="0" ActualRowsRead="21522" ActualEndOfScans="1" ActualExecutions="1" ActualExecutionMode="Row"></RunTimeCountersPerThread>
+                        <RunTimeCountersPerThread Thread="2" ActualRows="75" Batches="0" ActualElapsedms="21" ActualCPUms="13" ActualScans="1" ActualLogicalReads="1202" ActualPhysicalReads="0" ActualReadAheads="0" ActualLobLogicalReads="0" ActualLobPhysicalReads="0" ActualLobReadAheads="0" ActualRowsRead="45612" ActualEndOfScans="1" ActualExecutions="1" ActualExecutionMode="Row"></RunTimeCountersPerThread>
+                        <RunTimeCountersPerThread Thread="1" ActualRows="142" Batches="0" ActualElapsedms="21" ActualCPUms="13" ActualScans="1" ActualLogicalReads="1202" ActualPhysicalReads="0" ActualReadAheads="0" ActualLobLogicalReads="0" ActualLobPhysicalReads="0" ActualLobReadAheads="0" ActualRowsRead="46211" ActualEndOfScans="1" ActualExecutions="1" ActualExecutionMode="Row"></RunTimeCountersPerThread>
+                        <RunTimeCountersPerThread Thread="0" ActualRows="0" Batches="0" ActualElapsedms="0" ActualCPUms="0" ActualScans="1" ActualLogicalReads="55" ActualPhysicalReads="0" ActualReadAheads="0" ActualLobLogicalReads="0" ActualLobPhysicalReads="0" ActualLobReadAheads="0" ActualEndOfScans="0" ActualExecutions="0" ActualExecutionMode="Row"></RunTimeCountersPerThread>
+                      </RunTimeInformation>
+                      <IndexScan Ordered="0" ForcedIndex="0" ForceScan="0" NoExpandHint="0" Storage="RowStore">
+                        <DefinedValues>
+                          <DefinedValue>
+                            <ColumnReference Database="[database_name]" Schema="[dbo]" Table="[Users]" Column="Id"></ColumnReference>
+                          </DefinedValue>
+                          <DefinedValue>
+                            <ColumnReference Database="[database_name]" Schema="[dbo]" Table="[Users]" Column="AboutMe"></ColumnReference>
+                          </DefinedValue>
+                          <DefinedValue>
+                            <ColumnReference Database="[database_name]" Schema="[dbo]" Table="[Users]" Column="Age"></ColumnReference>
+                          </DefinedValue>
+                          <DefinedValue>
+                            <ColumnReference Database="[database_name]" Schema="[dbo]" Table="[Users]" Column="CreationDate"></ColumnReference>
+                          </DefinedValue>
+                          <DefinedValue>
+                            <ColumnReference Database="[database_name]" Schema="[dbo]" Table="[Users]" Column="DisplayName"></ColumnReference>
+                          </DefinedValue>
+                          <DefinedValue>
+                            <ColumnReference Database="[database_name]" Schema="[dbo]" Table="[Users]" Column="DownVotes"></ColumnReference>
+                          </DefinedValue>
+                          <DefinedValue>
+                            <ColumnReference Database="[database_name]" Schema="[dbo]" Table="[Users]" Column="EmailHash"></ColumnReference>
+                          </DefinedValue>
+                          <DefinedValue>
+                            <ColumnReference Database="[database_name]" Schema="[dbo]" Table="[Users]" Column="LastAccessDate"></ColumnReference>
+                          </DefinedValue>
+                          <DefinedValue>
+                            <ColumnReference Database="[database_name]" Schema="[dbo]" Table="[Users]" Column="Location"></ColumnReference>
+                          </DefinedValue>
+                          <DefinedValue>
+                            <ColumnReference Database="[database_name]" Schema="[dbo]" Table="[Users]" Column="Reputation"></ColumnReference>
+                          </DefinedValue>
+                          <DefinedValue>
+                            <ColumnReference Database="[database_name]" Schema="[dbo]" Table="[Users]" Column="UpVotes"></ColumnReference>
+                          </DefinedValue>
+                          <DefinedValue>
+                            <ColumnReference Database="[database_name]" Schema="[dbo]" Table="[Users]" Column="Views"></ColumnReference>
+                          </DefinedValue>
+                          <DefinedValue>
+                            <ColumnReference Database="[database_name]" Schema="[dbo]" Table="[Users]" Column="WebsiteUrl"></ColumnReference>
+                          </DefinedValue>
+                          <DefinedValue>
+                            <ColumnReference Database="[database_name]" Schema="[dbo]" Table="[Users]" Column="AccountId"></ColumnReference>
+                          </DefinedValue>
+                        </DefinedValues>
+                        <Object Database="[database_name]" Schema="[dbo]" Table="[Users]" Index="[PK_Users_Id]" IndexKind="Clustered" Storage="RowStore"></Object>
+                        <Predicate>
+                          <ScalarOperator ScalarString="[database_name].[dbo].[Users].[CreationDate]&gt;&apos;2010-11-10 00:00:00.000&apos; AND [database_name].[dbo].[Users].[Reputation]&gt;(5000)">
+                            <Logical Operation="AND">
+                              <ScalarOperator>
+                                <Compare CompareOp="GT">
+                                  <ScalarOperator>
+                                    <Identifier>
+                                      <ColumnReference Database="[database_name]" Schema="[dbo]" Table="[Users]" Column="CreationDate"></ColumnReference>
+                                    </Identifier>
+                                  </ScalarOperator>
+                                  <ScalarOperator>
+                                    <Const ConstValue="&apos;2010-11-10 00:00:00.000&apos;"></Const>
+                                  </ScalarOperator>
+                                </Compare>
+                              </ScalarOperator>
+                              <ScalarOperator>
+                                <Compare CompareOp="GT">
+                                  <ScalarOperator>
+                                    <Identifier>
+                                      <ColumnReference Database="[database_name]" Schema="[dbo]" Table="[Users]" Column="Reputation"></ColumnReference>
+                                    </Identifier>
+                                  </ScalarOperator>
+                                  <ScalarOperator>
+                                    <Const ConstValue="(5000)"></Const>
+                                  </ScalarOperator>
+                                </Compare>
+                              </ScalarOperator>
+                            </Logical>
+                          </ScalarOperator>
+                        </Predicate>
+                      </IndexScan>
+                    </RelOp>
+                  </Sort>
+                </RelOp>
+              </Parallelism>
+            </RelOp>
+            <ParameterList>
+              <ColumnReference Column="@2" ParameterDataType="smallint" ParameterCompiledValue="(5000)" ParameterRuntimeValue="(5000)"></ColumnReference>
+              <ColumnReference Column="@1" ParameterDataType="varchar(8000)" ParameterCompiledValue="&apos;2010-11-10&apos;" ParameterRuntimeValue="&apos;2010-11-10&apos;"></ColumnReference>
+            </ParameterList>
+          </QueryPlan>
+        </StmtSimple>
+      </Statements>
+    </Batch>
+  </BatchSequence>
+</ShowPlanXML>
